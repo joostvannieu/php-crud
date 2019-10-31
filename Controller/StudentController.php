@@ -4,12 +4,13 @@ class StudentController
 {
     public function render()
     {
-        require 'View/studentpage.php';
 
-        $connect =new Connection();
+
+        $connect = new Connection();
         $students = $connect->getAllFromTable('student');
 
-        return $students;
+       // return $students;
+        require 'View/studentpage.php';
     }
 
    /* public function addStudent(array $_GET)

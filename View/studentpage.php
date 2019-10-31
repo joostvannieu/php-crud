@@ -5,14 +5,15 @@
 }*/
 
 var_dump($_GET);
-$connection = new Connection();
+
 function printRows(array $data) : void
 {
     foreach ($data as $row) {
         echo "<tr>
-                    <td>" . $row['name'] . "</td>
-                    <td>" . $row['email'] . "</td>
-                </tr>";
+                <td>" . $row['name'] . "</td>
+                <td>" . $row['email'] . "</td>
+                <td>" . $row['group_id'] . "</td>
+              </tr>";
     }
 }
 ?>
@@ -26,6 +27,8 @@ function printRows(array $data) : void
     <title>Document</title>
 </head>
 <body>
+<?php require 'includes/header.php'?>
+
 <form action="#" method="get">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required ><br>
@@ -40,9 +43,13 @@ function printRows(array $data) : void
     <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Group</th>
     </tr>
-    <?php printRows($connection->getAllFromTable('student'))?>
+    <?php printRows($students); ?>
 </table>
 
+
+
+<?php require 'includes/footer.php'?>
 </body>
 </html>
