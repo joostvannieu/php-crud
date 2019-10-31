@@ -3,11 +3,13 @@
 
 class Group
 {
+    private $id;
     private $name;
     private $location;
 
-    public function __construct(string $name, string $location)
+    public function __construct(int $id, string $name, string $location)
     {
+        $this->id =$id;
         $this->name = $name;
         $this->location = $location;
     }
@@ -33,6 +35,9 @@ class Group
         $this->location = $location;
     }
 
-
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
 }

@@ -1,4 +1,5 @@
 <?php
+var_dump($_POST);
 ?>
 
 <!doctype html>
@@ -16,6 +17,7 @@
     <table>
         <thead>
             <tr>
+                <th> ID</th>
                 <th> Name</th>
                 <th> Email</th>
             </tr>
@@ -23,8 +25,15 @@
         <tbody>
                 <?php foreach ($teachers as $teacher): ?>
             <tr>
+                <td><?php echo $teacher->getId(); ?></td>
                 <td><?php echo $teacher->getName()?></td>
                 <td><?php echo $teacher->getEmail(); ?></td>
+                <td>
+                    <form action="?view=teacherpage" method="post">
+                        <input type="hidden" value="<?php $teacher['id'];?>">
+                        <input type="submit" value="delete" name="Delete">
+                    </form>
+                </td>
             </tr>
 
         <?php endforeach;?>

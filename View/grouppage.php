@@ -19,6 +19,7 @@
 <table>
     <thead>
     <tr>
+        <th> ID</th>
         <th> Name</th>
         <th> Location</th>
     </tr>
@@ -27,6 +28,7 @@
     <tbody>
         <?php foreach ($groups as $group): ?>
 
+            <td><?php echo $group->getId()?></td>
             <td><?php echo $group->getName()?></td>
             <td><?php echo $group->getLocation(); ?></td>
 

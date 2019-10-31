@@ -10,7 +10,7 @@ class GroupController
         $allGroups = $connect->getAllFromTable('group');
         $groups = [];
         foreach ($allGroups as $row){
-            $group = new Group($row['name'],$row['location']);
+            $group = new Group($row['id'],$row['name'],$row['location']);
             $groups[]= $group;
         }
         require 'View/grouppage.php';
