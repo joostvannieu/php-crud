@@ -1,10 +1,17 @@
 <?php
-/*if (isset($_GET['addStudent'])) {
-    $control = new StudentController();
-    $control->addStudent($_GET);
-}*/
 
-var_dump($_GET);
+var_dump($_POST);
+if (!empty($_POST)){
+    if (isset($_POST["addStudent"])) {
+        $this->addStudent();
+        echo "ADDED A STUDENT";
+    } elseif (isset($_POST["del"])){
+        //$this->removeStudent();
+        $connection = new Connection();
+        $connection->removeFromTableById('student', $_POST['id']);
+        echo "DELETED";
+    }
+}
 
 function printRows(array $data) : void
 {
@@ -13,6 +20,12 @@ function printRows(array $data) : void
                 <td>" . $row['name'] . "</td>
                 <td>" . $row['email'] . "</td>
                 <td>" . $row['group_id'] . "</td>
+                <td>
+                    <form action='?view=studentpage' method='post'>
+                        <input type='hidden' value='". $row['id']. "' name='id'>
+                        <input type='submit' value='delete' name='del' >
+                    </form>
+                </td>
               </tr>";
     }
 }
@@ -29,7 +42,7 @@ function printRows(array $data) : void
 <body>
 <?php require 'includes/header.php'?>
 
-<form action="#" method="get">
+<form action="#" method="post">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required ><br>
     <label for="email">Email</label>
@@ -44,10 +57,10 @@ function printRows(array $data) : void
         <th>Name</th>
         <th>Email</th>
         <th>Group</th>
+        <th></th>
     </tr>
     <?php printRows($students); ?>
 </table>
-
 
 
 <?php require 'includes/footer.php'?>

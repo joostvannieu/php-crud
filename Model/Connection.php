@@ -28,6 +28,16 @@ class Connection
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function removeFromTableById(string $table, int $id) : void
+    {
+        $connection = new Connection();
+        $pdo = $connection->connect();
+        $sql = "DELETE FROM `" . $table . "` WHERE id=$id";
+        $stmt = $pdo->query($sql);
+        $stmt->execute();
+        $stmt = null;
+    }
+
 
     /*    public function getAllStudent (){
         $pdo=$this->Connect();
