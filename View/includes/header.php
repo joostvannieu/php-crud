@@ -1,12 +1,7 @@
 <header>
-    <?php
-        echo "GET";
-        var_dump($_GET);
-        echo "POST";
-        var_dump($_POST);
-        //echo "SESSION";
-        //var_dump($_SESSION);
-
-    ?>
     <h1>Welcome to my site</h1>
+
+    <a href="?view=studentpage">Student</a>
+    <a href="?view=teacherpage">Teacher</a>
+    <a href="?view=grouppage">Group</a>
 </header>
