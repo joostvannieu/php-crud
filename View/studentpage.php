@@ -1,7 +1,19 @@
 <?php
-if (isset($_GET['addStudent'])) {
+/*if (isset($_GET['addStudent'])) {
     $control = new StudentController();
     $control->addStudent($_GET);
+}*/
+
+var_dump($_GET);
+$connection = new Connection();
+function printRows(array $data) : void
+{
+    foreach ($data as $row) {
+        echo "<tr>
+                    <td>" . $row['name'] . "</td>
+                    <td>" . $row['email'] . "</td>
+                </tr>";
+    }
 }
 ?>
 <!doctype html>
@@ -23,6 +35,14 @@ if (isset($_GET['addStudent'])) {
     <input type="number" name="group" id="group" required ><br>
     <input type="submit" value="Add student" name="addStudent">
 </form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <?php printRows($connection->getAllFromTable('student'))?>
+</table>
 
 </body>
 </html>

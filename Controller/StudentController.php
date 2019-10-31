@@ -12,7 +12,7 @@ class StudentController
         return $students;
     }
 
-    public function addStudent(array $_GET)
+   /* public function addStudent(array $_GET)
     {
         $connection = new Connection();
         $pdo = $connection->connect();
@@ -23,6 +23,6 @@ class StudentController
         $stmt->bindValue(':group_id', $_GET['group']);
         $stmt->execute();
         $stmt = null;
-    }
+    }*/
 
 }
