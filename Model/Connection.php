@@ -5,7 +5,7 @@
 class Connection
 {
 
-    public function Connect (){
+    public function connect (){
         require 'config.php';
         $pdo = new PDO('mysql:host='. $dbhost .';dbname='. $db, $dbuser, $dbpass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -21,7 +21,7 @@ class Connection
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getRowFromTable (string $table, int $id) : array {
+    public function getRowFromTableById (string $table, int $id) : array {
         $pdo = $this->connect();
         $sql = "SELECT * FROM `" . $table . "` WHERE id=$id";
         $stmt = $pdo->query($sql);

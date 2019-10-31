@@ -1,4 +1,8 @@
 <?php
+if (isset($_GET['addStudent'])) {
+    $control = new StudentController();
+    $control->addStudent($_GET);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="../Controller/StudentController.php" method="get">
+<form action="#" method="get">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required ><br>
     <label for="email">Email</label>
@@ -19,6 +23,8 @@
     <input type="number" name="group" id="group" required ><br>
     <input type="submit" value="Add student" name="addStudent">
 </form>
+
+
 
 </body>
 </html>
