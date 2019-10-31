@@ -5,11 +5,14 @@ class GroupController
 {
     public function render()
     {
-        require 'View/grouppage.php';
+
         $connect= new Connection();
-        $group = $connect->getAllFromTable('group');
-
-        return $group;
+        $allGroups = $connect->getAllFromTable('group');
+        $groups = [];
+        foreach ($allGroups as $row){
+            $group = new Group($row['name'],$row['location']);
+            $groups[]= $group;
+        }
+        require 'View/grouppage.php';
     }
-
 }

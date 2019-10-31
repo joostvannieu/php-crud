@@ -6,11 +6,15 @@ class TeacherController
 
     public function render()
     {
-        require 'View/teacherpage.php';
         $connect= new Connection();
-        $teacher = $connect->getAllFromTable('teacher');
-        return $teacher;
+        $allTeachers = $connect->getAllFromTable('teacher');
+        $teachers = [];
+        foreach ($allTeachers as $row){
 
+            $teacher = new Teacher($row['name'],$row['email']);
+            $teachers[]= $teacher;
+        }
+        require 'View/teacherpage.php';
     }
 }
 

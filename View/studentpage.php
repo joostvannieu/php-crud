@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+
 <form action="../Controller/StudentController.php" method="get">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required ><br>
