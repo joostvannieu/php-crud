@@ -24,7 +24,5 @@ if (isset($_GET['addStudent'])) {
     <input type="submit" value="Add student" name="addStudent">
 </form>
 
-
-
 </body>
 </html>

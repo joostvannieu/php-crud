@@ -1,2 +1,36 @@
 <?php
-echo 'page teacher';
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher Overview</title>
+</head>
+<body>
+<?php require 'includes/header.php'?>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Name</th>
+                <th> Email</th>
+            </tr>
+        </thead>
+        <tbody>
+                <?php foreach ($teachers as $teacher): ?>
+            <tr>
+                <td><?php echo $teacher->getName()?></td>
+                <td><?php echo $teacher->getEmail(); ?></td>
+            </tr>
+
+        <?php endforeach;?>
+        </tbody>
+    </table>
+
+<?php require 'includes/footer.php'?>
+</body>
+</html>
