@@ -1,8 +1,9 @@
 <?php
 
 class StudentController
-
 {
+    private $studentList = [];
+
     public function render()
     {
         $connect = new Connection();
@@ -10,6 +11,16 @@ class StudentController
 
        // return $students;
         require 'View/studentpage.php';
+    }
+
+    public function loadStudents()
+    {
+        $connection = new Connection();
+        $students = $connection->getAllFromTable('student');
+        foreach ($students as $student){
+
+        }
+
     }
 
     public function addStudent()

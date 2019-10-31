@@ -1,6 +1,6 @@
 <?php
 
-var_dump($_POST);
+//var_dump($_POST);
 if (!empty($_POST)){
     if (isset($_POST["addStudent"])) {
         $this->addStudent();
