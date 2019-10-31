@@ -30,7 +30,7 @@ var_dump($_POST);
                 <td><?php echo $teacher->getEmail(); ?></td>
                 <td>
                     <form action="?view=teacherpage" method="post">
-                        <input type="hidden" value="<?php $teacher['id'];?>">
+                        <input type="hidden" value="<?php $teacher->getId();?>">
                         <input type="submit" value="delete" name="Delete">
                     </form>
                 </td>
