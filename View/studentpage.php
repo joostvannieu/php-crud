@@ -10,7 +10,15 @@
     <title>Document</title>
 </head>
 <body>
-
+<form action="../Controller/StudentController.php" method="get">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required ><br>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" required ><br>
+    <label for="group">Group</label>
+    <input type="number" name="group" id="group" required ><br>
+    <input type="submit" value="Add student" name="addStudent">
+</form>
 
 </body>
 </html>
